@@ -1,0 +1,11 @@
+﻿ .select {
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            border:solid 1px #19a6b8;
+            
+            
+        }
+    .select:hover {
+        border:2px solid #ff6a00;
+        background-color:#f8f3cb;
+    }

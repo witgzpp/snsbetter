@@ -1,0 +1,66 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>众创网-密码重置</title>
+    <link rel="shortcut icon" type="image/x-icon" href="/Resources/logo.ico" />
+    <link href="/Css/Common.css" rel="stylesheet" />
+
+    <link href="/Css/LoginAndRegist.css" rel="stylesheet" />
+    <link href="/Css/DivCenter.css" rel="stylesheet" />
+    <script src="/Js/jquery-3.2.1.js"></script>
+    <script src="/Js/ChangeCode.js"></script>
+</head>
+<body style="background-image:url(/Resources/findpwd.jpg);">
+    <div class="lr">
+
+        @{
+            if (Session["user"] != null) 
+            {
+                 
+            }
+            else
+            {
+                  @Html.ActionLink("登录", "Login", "User")
+                  @Html.ActionLink("注册", "Regist", "User")
+            }
+        }
+        @Html.ActionLink("首页", "Index", "Home")
+
+       
+       
+    </div>
+    <div class="divCenter">
+        <img src="/Resources/head.jpg" style="margin-top:20px;" />
+        @using (Html.BeginForm())
+        {
+            <form>
+                <table>
+                    <tr><td>邮箱：</td><td><input type="email" name="email" placeholder="请输入你的注册邮箱" /></td></tr>
+
+                    <tr>
+                        <td>密码：</td><td><input type="password" name="pwd1" /> </td>
+                    </tr>
+                    <tr>
+                        <td>确认密码：</td><td><input type="password" name="pwd2" /> </td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td><img class="code" title="看不清?换一张" src="/User/ValidateCode" /></td><td><input type="text" name="code" style="width:90px;" /></td>
+                    </tr>
+                    
+                   
+                    <tr><td colspan="2"><input type="submit" value="重置" /><span style="color:red;">@ViewData["em"]</span></td></tr>
+                </table>
+            </form>
+        }
+        
+    </div>
+</body>
+</html>

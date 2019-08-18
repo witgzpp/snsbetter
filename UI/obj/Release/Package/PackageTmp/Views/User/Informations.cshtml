@@ -1,0 +1,50 @@
+﻿@{
+    Layout = null;
+}
+@using Common;
+@using Modal;
+@model PagedList.IPagedList<Talk>
+@using PagedList.Mvc;
+
+
+<!DOCTYPE html>
+
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>众创网-主题搜索</title>
+    <link rel="shortcut icon" type="image/x-icon" href="/Resources/logo.ico" />
+    <link href="/Css/nrDiv.css" rel="stylesheet" />
+    <link href="/Content/PagedList.css" rel="stylesheet" />
+</head>
+<body>
+
+
+    <div class="nr">
+        @Html.ActionLink("首页", "Index", "Home")
+        @if (ViewData["nr"] == null)
+        {
+            foreach (Talk item in Model)
+            {
+                <table>
+                    <tr><td><span style="font-size:10px; color:gray;">@item.CDate</span></td><td>@item.Theme</td><td>《@item.Title》</td><td>@Html.ActionLink(@StrHelper.GetStr(item.Content, 46), "TalkDetail", new { id = item.Id })</td></tr>
+                </table>
+            }
+        }
+        else
+        {
+            <br />
+            <span style="color:red;">@ViewData["nr"]</span>
+        }
+
+        <div class="pagination">
+            @*分页主要代码*@
+            每页 @Model.PageSize 条记录，共 @Model.PageCount 页，当前第 @Model.PageNumber 页
+            @Html.PagedListPager(Model, page => Url.Action("SearchInfo", new { page }))
+        </div>
+
+
+    </div>
+</body>
+</html>

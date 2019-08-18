@@ -1,0 +1,104 @@
+﻿@model Modal.User
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>UserInfo</title>
+</head>
+<body>
+    <script src="~/Scripts/jquery-1.8.2.min.js"></script>
+    <script src="~/Scripts/jquery.validate.min.js"></script>
+    <script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
+    <style>
+      
+    </style>
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+        @Html.ValidationSummary(true)
+    
+        <fieldset>
+            <legend>信息管理</legend>
+    
+            @Html.HiddenFor(model => model.Id)
+    
+            <div class="editor-label">
+                @Html.LabelFor(model => model.UName,"用户名")
+            </div>
+            <div class="editor-field">
+                @Html.EditorFor(model => model.UName)
+                @Html.ValidationMessageFor(model => model.UName)
+            </div>
+    
+            <div class="editor-label">
+                @Html.LabelFor(model => model.UPwd,"MD5密码")
+            </div>
+            <div class="editor-field">
+                @Html.EditorFor(model => model.UPwd)
+                @Html.ValidationMessageFor(model => model.UPwd)
+            </div>
+    
+            <div class="editor-label">
+                @Html.LabelFor(model => model.RName, "真实名称")
+            </div>
+            <div class="editor-field">
+                @Html.EditorFor(model => model.RName)
+                @Html.ValidationMessageFor(model => model.RName)
+            </div>
+    
+            <div class="editor-label">
+                @Html.LabelFor(model => model.Age,"年龄")
+            </div>
+            <div class="editor-field">
+                @Html.EditorFor(model => model.Age)
+                @Html.ValidationMessageFor(model => model.Age)
+            </div>
+    
+            <div class="editor-label">
+                @Html.LabelFor(model => model.Sex,"性别")
+            </div>
+            <div class="editor-field">
+                @Html.EditorFor(model => model.Sex)
+                @Html.ValidationMessageFor(model => model.Sex)
+            </div>
+    
+            <div class="editor-label">
+                @Html.LabelFor(model => model.Des,"个人描述")
+            </div>
+            <div class="editor-field">
+                @Html.EditorFor(model => model.Des)
+                @Html.ValidationMessageFor(model => model.Des)
+            </div>
+    
+            <div class="editor-label">
+                @Html.LabelFor(model => model.Tel,"手机号码")
+            </div>
+            <div class="editor-field">
+                @Html.EditorFor(model => model.Tel)
+                @Html.ValidationMessageFor(model => model.Tel)
+            </div>
+    
+            <div class="editor-label">
+                @Html.LabelFor(model => model.Email,"邮箱")
+            </div>
+            <div class="editor-field">
+                @Html.EditorFor(model => model.Email)
+                @Html.ValidationMessageFor(model => model.Email)
+            </div>
+    
+            <p>
+                <input type="submit" value="提交" />
+            </p>
+        </fieldset>
+    }
+    
+    <div>
+        @Html.ActionLink("用户中心", "UserCenter")
+    </div>
+</body>
+</html>

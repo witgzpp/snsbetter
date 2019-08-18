@@ -1,0 +1,301 @@
+﻿@{
+    Layout = null;
+}
+@using Modal;
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>众创网-Detail</title>
+    <link rel="shortcut icon" type="image/x-icon" href="/Resources/logo.ico" />
+    <script src="/Js/jquery-3.2.1.js"></script>
+    <script src="/Js/textareaheightauto.js"></script>
+    <link href="/Css/Search.css" rel="stylesheet" />
+    <link href="/Css/editDiv.css" rel="stylesheet" />
+    <link href="/Css/right.css" rel="stylesheet" />
+    
+    <link href="/Css/footer.css" rel="stylesheet" />
+    <link href="/Css/SearchSubmit.css" rel="stylesheet" />
+    <link href="/Css/info.css" rel="stylesheet" />
+
+    <style type="text/css">
+        body {
+            font-family: Verdana,Arial,Helvetica,sans-serif;
+            font-size: 14px;
+            line-height: 25px;
+            background: #f0eef5;
+            background-repeat: no-repeat;
+            background-size: 100% 100%;
+            background-attachment: fixed;
+        }
+        .content {
+            padding:36px 0px;
+            text-align:justify;
+        }
+            .content textarea {
+                width: 100%;
+                background-color: #f0eef5;
+                border: none;
+                resize:none;
+                overflow:hidden;
+                margin:0 auto;
+            }
+        #comment_nav {
+            background-color:white;          
+            width: 44px;
+            top: 80%;
+            left: 90%;
+            position: fixed;           
+            
+            display: block;
+        }
+            #comment_nav:hover {
+                background-color:#ff6a00;
+            }
+            #comment_nav a:link {
+                color:#000;
+                text-decoration:none;
+            }
+            #comment_nav a {
+                padding-left:10px;
+            }
+                #comment_nav a:hover {
+                    color:#92ba1b;
+                }
+
+        #comment_bottom {
+            border: 1px solid #dedede;
+            padding:20px;
+            background-color:#fff;
+        }
+        .login_tips {
+            background-image: url(/Resources/icon_add.gif);
+            background-repeat: no-repeat;
+            margin-top: 10px;
+            padding: 0 0 10px 25px;
+            font-weight: bold;
+            color: #7d8b8d;
+        }
+            .login_tips a {
+                padding: 4px;
+                text-decoration: underline !important;
+                color: #7d8b8d;
+            }
+                .login_tips a:hover {
+                    color:#ff6a00;
+                }
+    </style>
+    <script type="text/javascript">
+        $(function () {
+            $(".editDiv").hide();
+            Edit();
+            Cancle();
+
+
+           
+        })
+
+
+        function Edit() {
+            $(".edit").click(function () {
+                var luser = $("#luser").val();
+                if (luser == "" || luser == null) {
+                    if (confirm("您未登陆，请您登陆后编辑，是否登陆？")) {
+                        window.location.href = "/User/Login";
+                    }
+                }
+                else {
+                    $(".editDiv").show();
+                }
+                
+                
+            })
+        }
+
+        function Cancle() {
+            $(".cancel").click(function () {               
+                $(".editDiv").hide();
+            })
+        }
+
+        function edit(num) {
+            $(".content textarea").css("font-size", num);
+            $.fn.autoHeight = function () {
+                function autoHeight(elem) {
+                    elem.style.height = 'auto';
+                    elem.scrollTop = 0; //防抖动
+                    elem.style.height = elem.scrollHeight + 'px';
+                }
+                this.each(function () {
+                    autoHeight(this);
+                    $(this).on('keyup', function () {
+                        autoHeight(this);
+                    });
+                });
+            }
+            $('textarea[autoHeight]').autoHeight();
+        }
+
+
+       
+    </script>
+</head>
+<body> 
+    <a name="top"></a>
+        @{
+            Talk talk = (Talk)Model;
+        }
+           
+    <div>
+        <div class="Search">
+            <form action="/User/SearchInfo">
+                <input style="text-align:center" class="keyword" type="text" name="keyword" placeholder="搜点啥" />
+                <input type="submit" value="Go" class="submit" />
+            </form>
+        </div>
+        
+    </div>
+    <br />
+
+   
+    <div style="width:90%; margin:0 auto; padding-top:5px;" >
+        <h2 style="text-align:center;">@talk.Title</h2> 
+        <div class="info">
+            [字体：
+            <a href="javascript:edit(20);">大</a>
+            <a href="javascript:edit(16);">中</a>
+            <a href="javascript:edit(14);">小</a>
+            ]
+        </div>
+        <h3>所属类别：<span style="color:red;">@talk.Theme</span></h3>
+        <h4>发布时间：<span style="color:red;">@talk.CDate.ToString().Replace("/","-")</span></h4>
+        
+        <div class="content"><textarea readonly="readonly" autoHeight="true" >@talk.Content</textarea></div>
+        
+
+        <span style="margin-left:96%; color: #167fe4;cursor:pointer; font-size:14px;" title="编辑" class="edit">编辑</span>&nbsp;&nbsp;<span style="color:red;">@ViewData["updateflag"]</span>
+       
+        <div class="flag_show" style="margin-top:60px;">
+            
+            <br />
+            <table>
+                <tr><td class="right_show"><span>当前时间/最后更新时间：</span></td><td><span style="color:red; font-size:12px;">@talk.UDate.ToString().Replace("/","-")</span></td></tr>
+                <tr><td class="right_show"><span>发布人：</span></td><td><span style="color:red; font-size:12px;">@talk.CName</span></td></tr>
+
+                @{
+                    if (talk.UNames != "") 
+                    {
+                        <tr><td class="right_show"><span>贡献者：</span><textarea readonly="readonly" autoheight="true">@talk.UNames.ToString().Replace(";", " ")</textarea></td></tr>
+                    }
+                    if (talk.UName != "") 
+                    {
+                        <tr><td class="right_show"><span>最后修改人：</span></td><td><span style="color:red; font-size:12px;">@talk.UName</span></td></tr>
+                    }
+                }                              
+            </table>           
+        </div> 
+        <div id="comment_nav">
+            <div style="height:30px;">
+                <a href="#" title="刷新页面" onclick="return RefreshPage();"><img width="22" height="22" src="/Resources/reflash.jpg" /> </a>
+            </div>
+            <div style="height:30px;">
+                <a href="#top"><img src="/Resources/top.jpg" title="返回顶部"></a>
+            </div>
+            <div style="height:30px;">
+                <a href="#bottom"><img src="/Resources/bottom.jpg" title="返回底部"></a>
+            </div>
+        </div>  
+        
+        
+        <div id="comment_bottom">
+            <div class="login_tips">
+                @{
+                    if (Session["user"] == null || Session["user"].ToString()=="") 
+                    {
+                         <span>注册用户登录后才能发表评论/编辑，请</span>
+                        <span>@Html.ActionLink("登录", "Login", "User")</span>
+                          <span>或</span>  
+                        <span>@Html.ActionLink("注册", "Regist", "User")</span>
+                    }
+                    else
+                    {
+                         <span>Welcome to</span>@Html.ActionLink(Session["user"].ToString(),"UserCenter","User")
+                    }
+                }                              
+                ,
+                @Html.ActionLink("访问", "Index", "Home")
+                网站首页。
+            </div>
+        </div>                                  
+    </div> 
+
+
+
+
+    <div class="footer">
+        Copyright &copy;@talk.CName
+    </div>
+   
+    
+    
+    
+
+    @using (Html.BeginForm()){
+        
+             <div class="editDiv">
+                 <form>                  
+                     @if (Session["user"] == null) {
+                     <input type="hidden" id="luser" name="UName" value="" />
+                     }
+                     else
+                     {
+                     <input type="hidden" id="luser" name="UName" value="@Session["user"]" />
+                     }
+                     <input type="hidden" name="CName" value="@talk.CName" />
+                     <input type="hidden" name="Id" value="@talk.Id" />
+                     
+                     <table>  
+                         
+                         @{
+        if (Session["user"] != null) 
+        {
+            if (talk.CName == Session["user"].ToString()) 
+         {
+            <tr><td></td><td><input type="text"  name="Theme" value="@talk.Theme" /></td></tr>
+                         <tr><td></td><td><input type="text" name="Title" value="@talk.Title" /></td></tr>
+        }
+        else
+        {
+                <tr><td><input type="hidden" name="Theme" value="@talk.Theme" /></td><td><input type="hidden" name="Title" value="@talk.Title" /></td></tr>
+                     
+            <tr><td></td><td><input type="text" disabled="disabled"  value="@talk.Theme" /></td></tr>
+                         <tr><td></td><td><input type="text" disabled="disabled"  value="@talk.Title" /></td></tr>
+        }
+        }                             
+                         } 
+                           
+                                           
+                         
+
+
+
+
+                         <tr><td></td><td><textarea name="Content" style="width:580px; height:272px;">@talk.Content</textarea></td></tr>
+                        
+                         <tr><td colspan="2"><input type="submit" value="提交" /></td></tr>
+                         <tr><td colspan="2"><span class="cancel">取消</span></td></tr> 
+                        
+                                      
+                     </table>                                        
+                 </form>
+             </div>
+    }
+
+
+    
+    <br />
+   
+    <a name="bottom"></a>
+</body>
+</html>

@@ -1,0 +1,14 @@
+E:\Social\Social\Modal\bin\Release\Modal.dll
+E:\Social\Social\Modal\bin\Release\Modal.pdb
+E:\Social\Social\Modal\bin\Release\Interface.dll
+E:\Social\Social\Modal\bin\Release\Interface.pdb
+E:\Social\Social\Modal\obj\Release\Modal.csprojResolveAssemblyReference.cache
+E:\Social\Social\Modal\obj\Release\Modal.dll
+E:\Social\Social\Modal\obj\Release\Modal.pdb
+E:\Snsbetter\Modal\bin\Release\Modal.dll
+E:\Snsbetter\Modal\bin\Release\Modal.pdb
+E:\Snsbetter\Modal\bin\Release\Interface.dll
+E:\Snsbetter\Modal\bin\Release\Interface.pdb
+E:\Snsbetter\Modal\obj\Release\Modal.csprojResolveAssemblyReference.cache
+E:\Snsbetter\Modal\obj\Release\Modal.dll
+E:\Snsbetter\Modal\obj\Release\Modal.pdb

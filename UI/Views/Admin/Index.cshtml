@@ -1,0 +1,38 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>众创网-后台管理</title>
+    <link rel="shortcut icon" type="image/x-icon" href="/Resources/logo.ico" />
+</head>
+<body>
+    <h1 style="text-align:center;">后台管理</h1>
+    <div>
+        <a href="/Home/AddTalk">添加测试</a>
+    </div> 
+    <div>
+        @Html.ActionLink("talks管理", "AdminTalk","Admin")
+    </div>
+
+    <div>
+        <h3>添加敏感词</h3>
+        <form action="/Admin/AddDisableword">
+            <textarea rows="30" class="100" name="disable" placeholder="输入格式：
+敏感词1
+敏感词2
+敏感词3
+敏感词4
+敏感词5
+敏感词6"></textarea>
+            <input type="submit" value="提交" /><span style="color:red; font-size:14px;">@ViewData["flag"]</span>
+        </form>
+
+
+</div>
+</body>
+</html>

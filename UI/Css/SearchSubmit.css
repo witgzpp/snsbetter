@@ -1,0 +1,10 @@
+﻿.submit {
+        background:#19a6b8;
+        color:white;  
+        display:inline-block;
+        border:none;
+        font-size:16px;
+        font-family:'Arial Rounded MT';
+        padding-bottom:2px;
+        cursor:pointer;
+}

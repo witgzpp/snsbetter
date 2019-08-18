@@ -1,0 +1,179 @@
+﻿@{
+    Layout = null;
+}
+@using Modal;
+@using Common;
+
+@model PagedList.IPagedList<Talk>
+@using PagedList.Mvc;
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />   
+    <title>众创网-首页</title>
+    <link rel="shortcut icon" type="image/x-icon" href="/Resources/logo.ico"/> 
+    <meta name="keywords" content="众创,众创网,SNSBETTER,snsbetter,snsbetter.cn,共享,信息,资讯" /> 
+    <meta name="description" content="众创为广大网民提供信息发布空间！娱乐信息、生活趣事、技术性文章来吸引有着共同爱好的朋友，在这里可以寻找到创作的灵感。一同营造大众创作，万众创新，互利共享，开放包容的网络环境" />
+    <meta content="always" name="referrer"> 
+    <link href="/Css/LoginAndRegist.css" rel="stylesheet" />
+    <link href="/Css/nrDiv.css" rel="stylesheet" />
+    <link href="/Css/Search.css" rel="stylesheet" />
+    <link href="/Css/userinfo.css" rel="stylesheet" />
+    <link href="/Css/Common.css" rel="stylesheet" /> 
+    <link href="/Content/PagedList.css" rel="stylesheet" />
+    <link href="/Css/SearchSubmit.css" rel="stylesheet" />
+    <link href="/Css/Mytitle.css" rel="stylesheet" />
+    <link href="/Css/select.css" rel="stylesheet" />
+    <link href="/Css/footer_div.css" rel="stylesheet" />
+    <link href="/Css/header_blockCss.css" rel="stylesheet" />
+    
+    <style type="text/css">      
+        #clock {
+            border-radius: 50%;
+            margin-left:10%;
+        }
+        .clock_div {
+            display:block;
+            position:absolute;
+            width:80px;
+            height:80px;
+            margin-top:60px;
+        }
+    </style>       
+</head>
+<body style="background-image:url(@ViewData["img"])">        
+    <div class="header_block">
+        <a href="http://www.snsbetter.cn" title="http://www.snsbetter.cn"><img src="/Resources/webflag.jpg" style="width:240px; height:41px;" /></a><span style="font-size:18px; color:#ff6a00; font-style:normal; margin-left:58.2%;">@ViewData["flag"]</span>
+        
+        
+    </div>
+   
+    @if (Session["user"] != null)
+{         
+            <div class="clock_div">
+                <canvas id="clock" width="80" height="80" style="background-color:white;"></canvas>
+            </div>
+            <script src="/Js/clock.js"></script>
+       
+}    
+    <div class="userinfo">      
+        @{
+            if (Session["user"]!=null) 
+            {
+                <span style="color:black; font:16px;">欢迎</span><span>@Session["user"]</span>
+                <span style="color:black;">当前时间</span>
+                <span id="time"></span>            
+                <script type="text/javascript">
+            function time() {
+                var vWeek, vWeek_s, vDay;
+                vWeek = ["星期天", "星期一", "星期二", "星期三", "星期四", "星期五", "星期六"];
+                var date = new Date();
+                year = date.getFullYear();
+                month = date.getMonth() + 1;
+                day = date.getDate();
+                hours = date.getHours();
+                minutes = date.getMinutes();
+                seconds = date.getSeconds();
+                vWeek_s = date.getDay();
+                document.getElementById("time").innerHTML = year + "年" + month + "月" + day + "日" + "\t" + hours + ":" + minutes + ":" + seconds + "\t" + vWeek[vWeek_s];
+
+            };
+            setInterval("time()", 1000);
+
+        </script>          
+            }
+            else
+            {
+                <span style="font:14px; color:gray;">未登陆</span> 
+            }
+        
+            
+        }   
+    </div>
+    <div class="mytitle">
+        <form action="/User/Informations">
+            <select name="Theme" class="select">
+                <option>  </option>
+                <option>科技</option>
+                <option>经济</option>
+                <option>政治</option>
+                <option>人物</option>
+                <option>民生</option>
+                <option>文化</option>
+                <option>娱乐</option>
+                <option>学术</option>
+                <option>物理</option>
+                <option>文学</option>
+                <option>哲学</option>
+                <option>Technology</option>
+                <option>Economic</option>
+                <option>Politics</option>
+                <option>GreatMan</option>
+                <option>Finance</option>
+                <option>Amusement</option>
+                <option>Academic</option>
+                <option>Physics</option>
+                <option>Literature</option>
+                <option>Philosophy</option>
+            </select>
+            <input type="submit" value="Go" class="submit" />
+        </form>   
+    </div>
+    <div class="lr">      
+            <form action="/User/SearchInfo" style="margin-top:10px;">
+                <input class="keyword" style="text-align:center" type="text" name="keyword" placeholder="搜点啥" />
+                <input type="submit" value="Go" class="submit" />
+            </form>      
+        @{
+            if (Session["user"]==null) 
+            {
+                @Html.ActionLink("登录", "Login", "User");
+                @Html.ActionLink("注册 ", "Regist", "User");
+            }          
+        }
+        @Html.ActionLink("重置密码", "ReSetPwd", "User")
+        @Html.ActionLink("用户中心", "UserCenter", "User")
+        
+    </div>
+    <div class="nr">
+        <div>
+            @foreach (Talk item in Model)
+            {
+                <table>
+                    <tr><td><span style="font-size:10px; color:gray;">@item.CDate</span></td><td>@item.Theme</td><td>《@item.Title》</td><td>  @Html.ActionLink(@StrHelper.GetStr(item.Content, 46), "Detail", new { id = item.Id })</td></tr>
+
+                </table>
+            }
+        </div>
+        <div class="pagination">
+            @*分页主要代码*@
+            每页 @Model.PageSize 条记录，共 @Model.PageCount 页，当前第 @Model.PageNumber 页
+            @Html.PagedListPager(Model, page => Url.Action("Index", new { page }))
+        </div>    
+    </div>
+    <div class="footer_div">
+        <br />
+        <div>
+            为了防范电信网络诈骗，如网民接到962110电话，请立即接听
+        </div>
+        <div>
+            
+
+            <div>
+                <b>版权所有&copy;@DateTime.Today.Year <a target="_blank" href="http://www.snsbetter.cn">snsbeter.cn.</a>@ViewData["address"]</b>
+            </div>
+
+            <div>
+                <a target="_blank" href="http://www.beian.miit.gov.cn">豫ICP备19027146号</a> 
+            </div>  
+            @*<div>
+                <a target="_blank" href="http://www.beian.gov.cn"><img src="/Resources/ghs.png" alt="" />豫公网安备 123456789号</a>
+            </div>*@      
+           
+           
+        </div>
+    </div>      
+</body>
+</html>

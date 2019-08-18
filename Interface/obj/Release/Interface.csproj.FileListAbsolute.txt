@@ -1,0 +1,5 @@
+E:\Social\Social\Interface\bin\Release\Interface.dll
+E:\Social\Social\Interface\bin\Release\Interface.pdb
+E:\Social\Social\Interface\obj\Release\Interface.csprojResolveAssemblyReference.cache
+E:\Social\Social\Interface\obj\Release\Interface.dll
+E:\Social\Social\Interface\obj\Release\Interface.pdb

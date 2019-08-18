@@ -1,0 +1,159 @@
+﻿@{
+    Layout = null;
+}
+@using Modal;
+@using Common;
+@model PagedList.IPagedList<Talk>
+@using PagedList.Mvc;
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>众创网-用户中心</title>
+    <link rel="shortcut icon" type="image/x-icon" href="/Resources/logo.ico" />
+    <link href="/Css/Search.css" rel="stylesheet" />
+    <link href="/Css/nrDiv.css" rel="stylesheet" />
+    <link href="/Css/userinfo.css" rel="stylesheet" />
+    <link href="/Css/CommonA.css" rel="stylesheet" />
+    <link href="/Content/PagedList.css" rel="stylesheet" />
+    <link href="/Css/SearchSubmit.css" rel="stylesheet" />
+    <link href="/Css/Mytitle.css" rel="stylesheet" />
+    <link href="/Css/select.css" rel="stylesheet" />
+    <script src="/Js/jquery-3.2.1.js"></script>
+    <script src="/Js/DelAndExit.js"></script>
+    <script src="/Js/ChangeCode.js"></script>
+    
+
+    <link href="/Css/DivCenter.css" rel="stylesheet" />
+   
+</head> 
+<body>      
+    @{
+        if (Session["user"] != null) 
+        {
+            if (Session["user"].ToString() != "admin") 
+            {
+               <div class="userinfo">
+                <span>欢迎</span><span style="color:red; font-size:14px;">@Session["user"]</span><br />
+                 
+                <span>@Html.ActionLink("首页", "Index", "Home")</span><br />
+                <span>@Html.ActionLink("个人信息", "UserInfo", "User")</span><br />
+                <span>@Html.ActionLink("添加talk","AddTalk","Home")</span>
+                
+                <form style="padding-top:10px; padding-left:15px;padding-bottom:10px;" action="/User/UserExit"><input id="exit" style="border:none; cursor:pointer;" type="submit" value="退出" /></form>     
+
+            </div>   
+            }
+            else
+            {
+                 <div class="userinfo">
+                <span>欢迎</span><span style="color:red; font-size:14px;">@Session["user"]</span><br />
+                
+                <span>@Html.ActionLink("后台管理","Index","Admin")</span>
+                
+                <form style="padding-top:10px; padding-left:15px;padding-bottom:10px;" action="/User/UserExit"><input id="exit" style="border:none; cursor:pointer;" type="submit" value="退出" /></form>     
+
+            </div>   
+            }
+            
+              
+        }
+        else
+        {
+            <div class="userinfo">
+                <h3 style="text-align:center; color:gray;">用户未登陆</h3>
+                @Html.ActionLink("登陆","Login","User")
+                @Html.ActionLink("注册","Regist","User")
+                @Html.ActionLink("找回密码", "ReSetPwd","User")
+            </div>
+        }
+    }
+
+    
+
+    <div class="mytitle">
+        <form action="/User/Informations">
+            <select name="Theme" class="select">
+                <option>  </option>
+                <option>科技</option>
+                <option>经济</option>
+                <option>政治</option>
+                <option>人物</option>
+                <option>民生</option>
+                <option>文化</option>
+                <option>娱乐</option>
+                <option>学术</option>
+                <option>物理</option>
+                <option>文学</option>
+                <option>哲学</option>
+                <option>Technology</option>
+                <option>Economic</option>
+                <option>Politics</option>
+                <option>GreatMan</option>
+                <option>Finance</option>
+                <option>Amusement</option>
+                <option>Academic</option>
+                <option>Physics</option>
+                <option>Literature</option>
+                <option>Philosophy</option>
+            </select>
+            <input type="submit" value="Go" class="submit" />
+        </form>
+    </div>
+        
+    <div class="Search" style="position:inherit;">
+        <form action="/User/SearchInfo" style="margin-top:10px;">
+            <input style="text-align:center" type="text" placeholder="搜点啥" name="keyword" class="keyword" />
+            <input type="submit" value="Go" class="submit" />
+        </form>
+    </div>
+
+    @{
+        if (Session["user"] != null) 
+        {        
+            <div class="nr" style="margin-top:55px;">               
+              @foreach (Talk item in Model)
+                {
+                  
+                  <table>
+                    <tr>
+                      <td><span style="font-size:10px; color:gray;">@item.CDate</span></td>
+                        <td>@item.Theme</td>
+                        <td>《@item.Title》</td>
+                        <td>@Html.ActionLink(@StrHelper.GetStr(item.Content, 50), "TalkDetail", new { id = item.Id })</td>
+                        @if (item.Display == 0) 
+                        {
+                            <td><span style="font-size:14px; color:red;">state：</span><span style="color:gray; font-size:14px;">public</span></td>
+                        }
+                        else if(item.Display==1)
+                        {
+                            <td><span style="font-size:14px; color:red;">state：</span><span style="color:gray; font-size:14px;">private</span></td>
+                        }
+                        else
+                        {
+                             <td><span style="font-size:14px; color:red;">state：</span><span style="color:gray; font-size:14px;">none</span></td>
+                        }
+                        
+                        <td><form action="/Home/ShowTalk"><input type="hidden"   name="Id" value="@item.Id" /> <input  type="submit" value="show" /> </form></td>
+                        <td><form action="/Home/HideTalk"><input type="hidden" name="Id" value="@item.Id" /> <input type="submit" value="hide" /> </form></td>
+                        <td><form action="/User/DeleteTalk"><input type="hidden" name="Id" value="@item.Id" /> <input type="submit" class="deleteTalk" value="删除" /> </form></td>
+                    </tr>
+
+                  </table>
+                }
+            </div>                      
+            <div class="pagination">
+            @*分页主要代码*@
+            每页 @Model.PageSize 条记录，共 @Model.PageCount 页，当前第 @Model.PageNumber 页
+            @Html.PagedListPager(Model, page => Url.Action("UserCenter", new { page }))
+        </div> 
+        }
+    }
+
+
+    
+
+    
+</body>
+</html>

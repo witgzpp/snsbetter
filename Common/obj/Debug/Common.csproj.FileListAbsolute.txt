@@ -1,0 +1,10 @@
+E:\Social\Social\Common\bin\Debug\Common.dll
+E:\Social\Social\Common\bin\Debug\Common.pdb
+E:\Social\Social\Common\obj\Debug\Common.dll
+E:\Social\Social\Common\obj\Debug\Common.pdb
+E:\Social\Social\Common\obj\Debug\Common.csprojResolveAssemblyReference.cache
+E:\Snsbetter\Common\bin\Debug\Common.dll
+E:\Snsbetter\Common\bin\Debug\Common.pdb
+E:\Snsbetter\Common\obj\Debug\Common.csprojResolveAssemblyReference.cache
+E:\Snsbetter\Common\obj\Debug\Common.dll
+E:\Snsbetter\Common\obj\Debug\Common.pdb

@@ -1,0 +1,61 @@
+﻿@{
+    Layout = null;
+}
+
+@using Modal;
+@using Common;
+@model PagedList.IPagedList<Talk>
+@using PagedList.Mvc;
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>众创网-信息管理</title>
+    <link rel="shortcut icon" type="image/x-icon" href="/Resources/logo.ico" />
+    <link href="/Css/nrDiv.css" rel="stylesheet" />
+    <link href="/Content/PagedList.css" rel="stylesheet" />
+    <script src="/Js/jquery-3.2.1.min.js"></script>
+    <link href="/Css/Common.css" rel="stylesheet" />    
+</head>
+<body>
+    @Html.ActionLink("管理主页","Index","Admin")
+    <h1 style="text-align:center;">Talks管理</h1>
+    <div class="nr" style="margin-top:55px;">
+        @foreach (Talk item in Model)
+        {
+
+            <table>
+                <tr>
+                    <td><span style="font-size:10px; color:gray;">@item.CDate</span></td>
+                    <td>@item.Theme</td>
+                    <td>《@item.Title》</td>
+                    <td>@Html.ActionLink(@StrHelper.GetStr(item.Content, 50), "TalkDetail", new { id = item.Id })</td>
+                    @if (item.Display == 0) 
+                    {
+                        <td><span style="font-size:14px; color:red;">state：</span><span style="color:gray; font-size:14px;">public</span></td>
+                    }
+                    else if (item.Display == 1)
+                    {
+                        <td><span style="font-size:14px; color:red;">state：</span><span style="color:gray; font-size:14px;">private</span></td>
+                    }
+                    else
+                    {
+                        <td><span style="font-size:14px; color:red;">state：</span><span style="color:gray; font-size:14px;">none</span></td>
+                    }
+
+                    <td><form action="/Admin/ShowTalk"><input type="hidden" name="Id" value="@item.Id" /> <input type="submit" value="show" /> </form></td>
+                    <td><form action="/Admin/HideTalk"><input type="hidden" name="Id" value="@item.Id" /> <input type="submit" value="hide" /> </form></td>
+                    <td><form action="/Admin/DeleteTalk"><input type="hidden" name="Id" value="@item.Id" /> <input type="submit" value="删除" /> </form></td>
+                </tr>
+
+            </table>
+        }
+    </div>
+    <div class="pagination">
+        @*分页主要代码*@
+        每页 @Model.PageSize 条记录，共 @Model.PageCount 页，当前第 @Model.PageNumber 页
+        @Html.PagedListPager(Model, page => Url.Action("AdminTalk", new { page }))
+    </div> 
+</body>
+</html>

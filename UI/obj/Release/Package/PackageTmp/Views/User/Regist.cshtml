@@ -1,0 +1,88 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>众创网-注册</title>
+    <link rel="shortcut icon" type="image/x-icon" href="/Resources/logo.ico" />
+    <link href="/Css/DivCenter.css" rel="stylesheet" />
+    <link href="/Css/LoginAndRegist.css" rel="stylesheet" />
+    <script src="/Js/jquery-3.2.1.js"></script>
+    <script src="/Js/ChangeCode.js"></script>
+    <link href="/Css/Common.css" rel="stylesheet" />
+    <style type="text/css">
+        .divCenter table tr td {
+            padding-top:5px;
+        }
+    </style>
+</head>
+<body style="background-image:url(@ViewData["RegistImg"])" title="Welcom to Regist">
+    <div class="lr">
+        @Html.ActionLink("登录", "Login", "User")
+        @Html.ActionLink("重置密码", "ReSetPwd", "User")
+        @Html.ActionLink("首页","Index","Home")
+    </div>
+
+    <div class="divCenter" style="height:480px; width:350px;">
+        <img src="/Resources/head.jpg" style="margin-top:10px; width:60px; " />
+        @using (Html.BeginForm()) //从哪里来的直接提交到哪里去 后台用HttpPost特性
+        {
+            <form>
+            <table>
+                <tr>
+                    <td>用户名：</td>
+                    <td><input type="text" name="UName" /></td>
+                </tr>
+                <tr>
+                    <td>密码：</td>
+                    <td><input type="password" name="UPwd" /></td>
+                </tr>
+                <tr>
+                    <td>真实姓名：</td>
+                    <td><input type="text" name="RName" /> </td>
+                </tr>
+                <tr>
+                    <td>性别：</td>
+                    <td>
+                        <select name="Sex">
+                            <option>男</option>
+                            <option>女</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td>年龄：</td>
+                    <td><input type="number" min="0" max="120" maxlength="3" name="Age" /> </td>
+                </tr>
+                <tr>
+                    <td>手机：</td>
+                    <td><input type="tel" maxlength="11" name="Tel" /> </td>
+                </tr>
+                <tr>
+                    <td>邮箱：</td>
+                    <td><input type="email" name="Email" placeholder="找回密码使用" /></td>
+                </tr>
+                <tr>
+                    <td>个人描述：</td>
+                    <td><textarea name="Des"></textarea> </td>
+                </tr>
+                <tr>
+                    <td colspan="2">
+                        <input type="submit" value="注册"  title="Regist"/><img src="/User/ValidateCode" class="code" title="看不清?换一张" /><input type="text" name="code"  style="width:90px;"/><br /><span style="color:red; font-size:12px;" >@ViewData["result"]</span>
+                    </td>
+                </tr>
+            </table>
+        </form>
+            
+        }
+
+
+        
+    </div>
+    
+</body>
+</html>

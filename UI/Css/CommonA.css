@@ -1,0 +1,9 @@
+﻿a {
+            color:black;
+            cursor:pointer;
+            font-size:14px;
+            text-decoration:none;
+        }
+            a:hover {               
+                color:#ff6a00;
+            }

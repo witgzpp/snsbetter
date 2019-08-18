@@ -1,0 +1,77 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>众创网-添加信息</title>
+    <link rel="shortcut icon" type="image/x-icon" href="/Resources/logo.ico" />
+    <link href="/Css/editDiv.css" rel="stylesheet" />
+    <link href="/Css/CommonA.css" rel="stylesheet" />
+    <link href="/Css/Common.css" rel="stylesheet" />
+
+    @*<script src="/Js/jquery-3.2.1.js"></script>*@
+    @*<script type="text/javascript">
+        $(function () {
+            SelectOption();
+        })
+
+        function SelectOption() {
+            $("#options option").attr("value", $(this).val());
+        }
+    </script>*@
+    
+
+</head>
+<body>
+       @using (Html.BeginForm())
+       {
+            <div class="editDiv">
+                <form>           
+                    <table>            
+                        <tr><td>主题：</td><td>
+                                         <select name="Theme" class="select">
+                                             <option>  </option>
+                                             <option>科技</option>
+                                             <option>经济</option>
+                                             <option>政治</option>
+                                             <option>人物</option>
+                                             <option>民生</option>
+                                             <option>财经</option>
+                                             <option>娱乐</option>
+                                             <option>学术</option>
+                                             <option>物理</option>
+                                             <option>文学</option>
+                                             <option>哲学</option>
+                                             <option>Technology</option>
+                                             <option>Economic</option>
+                                             <option>Politics</option>
+                                             <option>GreatMan</option>
+                                             <option>Finance</option>
+                                             <option>Amusement</option>
+                                             <option>Academic</option>
+                                             <option>Physics</option>
+                                             <option>Literature</option>
+                                             <option>Philosophy</option>
+                                         </select>
+                            </td></tr>
+                        <tr><td>标题：</td><td><input type="text" name="Title" /></td></tr> 
+
+                        <tr><td>内容：</td><td><textarea name="Content" style="width:580px; height:272px;"></textarea></td></tr>              
+
+                        <tr><td colspan="2"><input type="submit" value="提交" /><select name="Display"><option value="0">public</option><option value="1">private</option></select> <span style="color:red; font-size:14px;">@ViewData["flag"]</span></td></tr> 
+        
+                        <tr><td colspan="2"><span class="cancel"><a href="/User/UserCenter">取消</a></span></td></tr>   
+                        
+                                                                                                  
+
+                    </table>
+                </form>
+               
+            </div>
+        }
+</body>
+</html>

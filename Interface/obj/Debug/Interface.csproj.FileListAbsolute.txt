@@ -1,0 +1,9 @@
+E:\Social\Social\Interface\bin\Debug\Interface.dll
+E:\Social\Social\Interface\bin\Debug\Interface.pdb
+E:\Social\Social\Interface\obj\Debug\Interface.dll
+E:\Social\Social\Interface\obj\Debug\Interface.pdb
+E:\Social\Social\Interface\obj\Debug\Interface.csprojResolveAssemblyReference.cache
+E:\Snsbetter\Interface\bin\Debug\Interface.dll
+E:\Snsbetter\Interface\bin\Debug\Interface.pdb
+E:\Snsbetter\Interface\obj\Debug\Interface.dll
+E:\Snsbetter\Interface\obj\Debug\Interface.pdb

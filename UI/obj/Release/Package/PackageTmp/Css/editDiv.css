@@ -1,0 +1,20 @@
+﻿body {
+}
+
+.editDiv {
+    margin:0 auto;
+    border:1px solid #000000;
+    
+    
+    top:30%;
+    left:30%;
+    position:fixed;   
+    text-align:center;
+    background-color:#e1dada;
+}
+.editDiv span {
+    color:#167fe4;
+    cursor:pointer;
+    font-size:14px;
+}
+

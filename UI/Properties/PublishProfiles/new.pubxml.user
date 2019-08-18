@@ -1,0 +1,331 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!--
+您 Web 项目的发布/打包进程将使用此文件。您可以通过编辑此 MSBuild 文件
+来自定义该进程的行为。若要了解与此相关的详细信息，请访问 http://go.microsoft.com/fwlink/?LinkID=208121。
+-->
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <TimeStampOfAssociatedLegacyPublishXmlFile />
+    <_PublishTargetUrl>E:\Website\snsbetter</_PublishTargetUrl>
+  </PropertyGroup>
+  <ItemGroup>
+    <File Include="404.html">
+      <publishTime>08/04/2019 14:09:06</publishTime>
+    </File>
+    <File Include="BaiduApi.html">
+      <publishTime>06/04/2019 18:22:06</publishTime>
+    </File>
+    <File Include="bin/Common.dll">
+      <publishTime>08/17/2019 21:18:36</publishTime>
+    </File>
+    <File Include="bin/Dao.dll">
+      <publishTime>08/17/2019 21:18:36</publishTime>
+    </File>
+    <File Include="bin/Interface.dll">
+      <publishTime>07/09/2019 00:02:26</publishTime>
+    </File>
+    <File Include="bin/Logic.dll">
+      <publishTime>08/18/2019 14:38:07</publishTime>
+    </File>
+    <File Include="bin/Microsoft.Web.Infrastructure.dll">
+      <publishTime>05/07/2019 20:51:46</publishTime>
+    </File>
+    <File Include="bin/Microsoft.Web.Mvc.FixedDisplayModes.dll">
+      <publishTime>05/07/2019 21:59:12</publishTime>
+    </File>
+    <File Include="bin/Modal.dll">
+      <publishTime>07/30/2019 00:14:18</publishTime>
+    </File>
+    <File Include="bin/Newtonsoft.Json.dll">
+      <publishTime>04/02/2019 22:45:32</publishTime>
+    </File>
+    <File Include="bin/PagedList.dll">
+      <publishTime>07/03/2019 20:40:06</publishTime>
+    </File>
+    <File Include="bin/PagedList.Mvc.dll">
+      <publishTime>07/03/2019 20:40:06</publishTime>
+    </File>
+    <File Include="bin/Service.dll">
+      <publishTime>08/17/2019 21:18:36</publishTime>
+    </File>
+    <File Include="bin/System.Net.Http.Formatting.dll">
+      <publishTime>04/02/2019 22:45:32</publishTime>
+    </File>
+    <File Include="bin/System.Web.Helpers.dll">
+      <publishTime>05/07/2019 21:59:12</publishTime>
+    </File>
+    <File Include="bin/System.Web.Http.dll">
+      <publishTime>04/02/2019 22:45:32</publishTime>
+    </File>
+    <File Include="bin/System.Web.Http.WebHost.dll">
+      <publishTime>04/02/2019 22:45:32</publishTime>
+    </File>
+    <File Include="bin/System.Web.Mvc.dll">
+      <publishTime>05/07/2019 21:59:12</publishTime>
+    </File>
+    <File Include="bin/System.Web.Razor.dll">
+      <publishTime>05/07/2019 21:59:12</publishTime>
+    </File>
+    <File Include="bin/System.Web.WebPages.Deployment.dll">
+      <publishTime>05/07/2019 21:59:12</publishTime>
+    </File>
+    <File Include="bin/System.Web.WebPages.dll">
+      <publishTime>05/07/2019 21:59:12</publishTime>
+    </File>
+    <File Include="bin/System.Web.WebPages.Razor.dll">
+      <publishTime>05/07/2019 21:59:12</publishTime>
+    </File>
+    <File Include="bin/UI.dll">
+      <publishTime>08/18/2019 15:36:08</publishTime>
+    </File>
+    <File Include="bin/zh-Hans/System.Net.Http.Formatting.resources.dll">
+      <publishTime>05/07/2019 21:59:14</publishTime>
+    </File>
+    <File Include="bin/zh-Hans/System.Web.Helpers.resources.dll">
+      <publishTime>05/07/2019 21:59:14</publishTime>
+    </File>
+    <File Include="bin/zh-Hans/System.Web.Http.resources.dll">
+      <publishTime>05/07/2019 21:59:14</publishTime>
+    </File>
+    <File Include="bin/zh-Hans/System.Web.Http.WebHost.resources.dll">
+      <publishTime>05/07/2019 21:59:14</publishTime>
+    </File>
+    <File Include="bin/zh-Hans/System.Web.Mvc.resources.dll">
+      <publishTime>05/07/2019 21:59:14</publishTime>
+    </File>
+    <File Include="bin/zh-Hans/System.Web.Razor.resources.dll">
+      <publishTime>05/07/2019 21:59:14</publishTime>
+    </File>
+    <File Include="bin/zh-Hans/System.Web.WebPages.Deployment.resources.dll">
+      <publishTime>05/07/2019 21:59:14</publishTime>
+    </File>
+    <File Include="bin/zh-Hans/System.Web.WebPages.Razor.resources.dll">
+      <publishTime>05/07/2019 21:59:14</publishTime>
+    </File>
+    <File Include="bin/zh-Hans/System.Web.WebPages.resources.dll">
+      <publishTime>05/07/2019 21:59:14</publishTime>
+    </File>
+    <File Include="Content/PagedList.css">
+      <publishTime>07/03/2019 20:40:06</publishTime>
+    </File>
+    <File Include="Controllers/AdminController.cs">
+      <publishTime>07/26/2019 17:57:28</publishTime>
+    </File>
+    <File Include="Controllers/HomeController.cs">
+      <publishTime>07/15/2019 21:10:08</publishTime>
+    </File>
+    <File Include="Controllers/UserController.cs">
+      <publishTime>07/15/2019 21:41:58</publishTime>
+    </File>
+    <File Include="Css/code.css">
+      <publishTime>05/24/2019 19:32:20</publishTime>
+    </File>
+    <File Include="Css/Common.css">
+      <publishTime>08/18/2019 09:56:25</publishTime>
+    </File>
+    <File Include="Css/CommonA.css">
+      <publishTime>07/23/2019 23:53:37</publishTime>
+    </File>
+    <File Include="Css/DivCenter.css">
+      <publishTime>07/18/2019 21:14:30</publishTime>
+    </File>
+    <File Include="Css/editDiv.css">
+      <publishTime>07/29/2019 12:11:41</publishTime>
+    </File>
+    <File Include="Css/footer.css">
+      <publishTime>06/09/2019 23:34:54</publishTime>
+    </File>
+    <File Include="Css/footer_div.css">
+      <publishTime>08/04/2019 23:22:56</publishTime>
+    </File>
+    <File Include="Css/header_blockCss.css">
+      <publishTime>08/18/2019 15:25:37</publishTime>
+    </File>
+    <File Include="Css/info.css">
+      <publishTime>08/13/2019 21:05:00</publishTime>
+    </File>
+    <File Include="Css/LoginAndRegist.css">
+      <publishTime>08/18/2019 09:59:46</publishTime>
+    </File>
+    <File Include="Css/Lunbotu.css">
+      <publishTime>08/09/2019 23:16:48</publishTime>
+    </File>
+    <File Include="Css/Mytitle.css">
+      <publishTime>08/13/2019 18:32:51</publishTime>
+    </File>
+    <File Include="Css/nrDiv.css">
+      <publishTime>08/02/2019 21:37:50</publishTime>
+    </File>
+    <File Include="Css/right.css">
+      <publishTime>08/17/2019 14:27:58</publishTime>
+    </File>
+    <File Include="Css/Search.css">
+      <publishTime>08/06/2019 23:02:07</publishTime>
+    </File>
+    <File Include="Css/SearchSubmit.css">
+      <publishTime>07/14/2019 13:03:28</publishTime>
+    </File>
+    <File Include="Css/select.css">
+      <publishTime>08/06/2019 23:19:07</publishTime>
+    </File>
+    <File Include="Css/userinfo.css">
+      <publishTime>08/18/2019 09:59:35</publishTime>
+    </File>
+    <File Include="ErrorPages/404.html">
+      <publishTime>07/17/2019 23:56:50</publishTime>
+    </File>
+    <File Include="ErrorPages/404Page.html">
+      <publishTime>07/17/2019 23:56:50</publishTime>
+    </File>
+    <File Include="Global.asax">
+      <publishTime>05/07/2019 21:59:10</publishTime>
+    </File>
+    <File Include="Js/autoskip.js">
+      <publishTime>08/04/2019 13:47:55</publishTime>
+    </File>
+    <File Include="Js/ChangeCode.js">
+      <publishTime>06/01/2019 23:25:16</publishTime>
+    </File>
+    <File Include="Js/clock.js">
+      <publishTime>06/18/2019 20:48:44</publishTime>
+    </File>
+    <File Include="Js/DelAndExit.js">
+      <publishTime>08/04/2019 11:26:27</publishTime>
+    </File>
+    <File Include="Js/jquery-3.2.1.js">
+      <publishTime>06/01/2019 23:18:42</publishTime>
+    </File>
+    <File Include="Js/jquery-3.2.1.min.js">
+      <publishTime>06/03/2019 22:26:36</publishTime>
+    </File>
+    <File Include="Js/jquery.min.js">
+      <publishTime>06/03/2019 23:41:16</publishTime>
+    </File>
+    <File Include="Js/md5.js">
+      <publishTime>06/03/2019 22:19:22</publishTime>
+    </File>
+    <File Include="Js/ShowTime.js">
+      <publishTime>06/07/2019 14:24:18</publishTime>
+    </File>
+    <File Include="Js/textareaheightauto.js">
+      <publishTime>08/17/2019 13:17:58</publishTime>
+    </File>
+    <File Include="Models/Comment.cs">
+      <publishTime>05/09/2019 22:15:44</publishTime>
+    </File>
+    <File Include="packages.config">
+      <publishTime>07/03/2019 20:40:06</publishTime>
+    </File>
+    <File Include="Resources/404.jpg">
+      <publishTime>08/17/2019 21:33:45</publishTime>
+    </File>
+    <File Include="Resources/bottom.jpg">
+      <publishTime>08/17/2019 21:33:45</publishTime>
+    </File>
+    <File Include="Resources/findpwd.jpg">
+      <publishTime>08/17/2019 21:33:45</publishTime>
+    </File>
+    <File Include="Resources/ghs.png">
+      <publishTime>08/17/2019 21:33:46</publishTime>
+    </File>
+    <File Include="Resources/head.jpg">
+      <publishTime>08/17/2019 21:33:46</publishTime>
+    </File>
+    <File Include="Resources/icon_add.gif">
+      <publishTime>08/17/2019 21:33:46</publishTime>
+    </File>
+    <File Include="Resources/index1.jpg">
+      <publishTime>08/09/2019 23:48:39</publishTime>
+    </File>
+    <File Include="Resources/index2.jpg">
+      <publishTime>08/09/2019 23:48:39</publishTime>
+    </File>
+    <File Include="Resources/index3.jpg">
+      <publishTime>08/09/2019 23:48:39</publishTime>
+    </File>
+    <File Include="Resources/index4.jpg">
+      <publishTime>08/09/2019 23:48:39</publishTime>
+    </File>
+    <File Include="Resources/Login.jpg">
+      <publishTime>08/17/2019 21:33:48</publishTime>
+    </File>
+    <File Include="Resources/logo.ico">
+      <publishTime>08/17/2019 21:33:48</publishTime>
+    </File>
+    <File Include="Resources/morning.jpg">
+      <publishTime>08/17/2019 21:33:48</publishTime>
+    </File>
+    <File Include="Resources/night.jpg">
+      <publishTime>08/17/2019 21:33:48</publishTime>
+    </File>
+    <File Include="Resources/noon.jpg">
+      <publishTime>08/17/2019 21:33:49</publishTime>
+    </File>
+    <File Include="Resources/Regist.jpg">
+      <publishTime>08/17/2019 21:33:50</publishTime>
+    </File>
+    <File Include="Resources/top.jpg">
+      <publishTime>08/17/2019 21:33:50</publishTime>
+    </File>
+    <File Include="Resources/user1.jpg">
+      <publishTime>08/09/2019 23:55:30</publishTime>
+    </File>
+    <File Include="Resources/user2.jpg">
+      <publishTime>08/09/2019 23:55:30</publishTime>
+    </File>
+    <File Include="Resources/user3.jpg">
+      <publishTime>08/09/2019 23:55:30</publishTime>
+    </File>
+    <File Include="Resources/user4.jpg">
+      <publishTime>08/09/2019 23:55:30</publishTime>
+    </File>
+    <File Include="Resources/webflag.jpg">
+      <publishTime>08/17/2019 21:33:51</publishTime>
+    </File>
+    <File Include="UtilTest/HtmlPage1.html">
+      <publishTime>06/05/2019 23:54:55</publishTime>
+    </File>
+    <File Include="Views/Admin/AdminTalk.cshtml">
+      <publishTime>08/14/2019 21:19:23</publishTime>
+    </File>
+    <File Include="Views/Admin/Index.cshtml">
+      <publishTime>08/14/2019 21:20:46</publishTime>
+    </File>
+    <File Include="Views/Home/AddTalk.cshtml">
+      <publishTime>08/04/2019 12:21:47</publishTime>
+    </File>
+    <File Include="Views/Home/Detail.cshtml">
+      <publishTime>08/18/2019 10:09:51</publishTime>
+    </File>
+    <File Include="Views/Home/Index.cshtml">
+      <publishTime>08/18/2019 15:35:37</publishTime>
+    </File>
+    <File Include="Views/User/Informations.cshtml">
+      <publishTime>08/04/2019 12:25:37</publishTime>
+    </File>
+    <File Include="Views/User/Login.cshtml">
+      <publishTime>08/04/2019 12:24:22</publishTime>
+    </File>
+    <File Include="Views/User/Regist.cshtml">
+      <publishTime>08/04/2019 12:23:55</publishTime>
+    </File>
+    <File Include="Views/User/ReSetPwd.cshtml">
+      <publishTime>08/04/2019 12:23:55</publishTime>
+    </File>
+    <File Include="Views/User/SearchInfo.cshtml">
+      <publishTime>08/04/2019 20:52:45</publishTime>
+    </File>
+    <File Include="Views/User/UserCenter.cshtml">
+      <publishTime>08/18/2019 13:13:42</publishTime>
+    </File>
+    <File Include="Views/User/UserInfo.cshtml">
+      <publishTime>08/18/2019 14:03:49</publishTime>
+    </File>
+    <File Include="Views/Web.config">
+      <publishTime>05/18/2019 19:23:32</publishTime>
+    </File>
+    <File Include="Web.config">
+      <publishTime>08/18/2019 15:36:08</publishTime>
+    </File>
+  </ItemGroup>
+</Project>
