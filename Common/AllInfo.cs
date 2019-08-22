@@ -30,6 +30,11 @@ namespace Common
         /// <summary>
         /// 用户错误操作表
         /// </summary>
-        Log_error
+        Log_error,
+
+        /// <summary>
+        /// 敏感词表
+        /// </summary>
+        Disable_word
     }
 }
