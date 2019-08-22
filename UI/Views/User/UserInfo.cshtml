@@ -15,16 +15,32 @@
     <script src="~/Scripts/jquery-1.8.2.min.js"></script>
     <script src="~/Scripts/jquery.validate.min.js"></script>
     <script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
-    <style>
-      
+    <style type="text/css">
+        span {
+            color:red;
+            font-family:Arial;
+            font-size:20px;
+        }
+        a {
+            text-decoration:none;
+        }
+            a:hover {
+                color:#ff6a00;
+            }
+        fieldset {
+            line-height:30px;
+        }
     </style>
     @using (Html.BeginForm()) {
         @Html.AntiForgeryToken()
         @Html.ValidationSummary(true)
     
         <fieldset>
-            <legend>信息管理</legend>
-    
+            <legend>欢迎  <span style="color:red;">@Session["user"]</span></legend>
+            <div>
+                座右铭：<span>@Model.Des</span>
+            </div>
+
             @Html.HiddenFor(model => model.Id)
     
             <div class="editor-label">
@@ -36,11 +52,11 @@
             </div>
     
             <div class="editor-label">
-                @Html.LabelFor(model => model.UPwd,"MD5密码")
+                @Html.LabelFor(model => model.UPwd,"密码")
             </div>
             <div class="editor-field">
                 @Html.EditorFor(model => model.UPwd)
-                @Html.ValidationMessageFor(model => model.UPwd)
+                @Html.ValidationMessageFor(model => model.UPwd)<span style="font-size:12px; color:gray;">请重新输入密码信息,显示密码为MD5加密后</span>
             </div>
     
             <div class="editor-label">
@@ -92,13 +108,17 @@
             </div>
     
             <p>
-                <input type="submit" value="提交" />
+                <input type="submit" style="border:none; background-color:#0eba31; color:white; cursor:pointer;" value="提交" />
             </p>
+
+
+            
         </fieldset>
     }
     
     <div>
         @Html.ActionLink("用户中心", "UserCenter")
+
     </div>
 </body>
 </html>
