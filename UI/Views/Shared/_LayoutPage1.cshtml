@@ -1,0 +1,32 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+    <link href="/Css/footer_div.css" rel="stylesheet" />
+    
+    
+</head>
+<body>
+    
+    <div>
+        @RenderBody()
+    </div>
+    <div class="footer_div">
+
+        <div>
+            为了防范电信网络诈骗，如网民接到962110电话，请立即接听
+        </div>
+        <div>
+            <div>
+                <b>版权所有&copy;@DateTime.Today.Year <a target="_blank" href="http://www.snsbetter.cn">snsbeter.cn.</a>@ViewData["address"]</b>
+            </div>
+            <div>
+                <a target="_blank" href="http://www.beian.miit.gov.cn">豫ICP备19027146号<img src="/Resources/ghs.png" alt="" /></a>
+                <a href="https://github.com/witgzpp/snsbetter">github <img width="20" height="20" src="/Resources/github-mark.png" /></a>
+            </div>
+        </div>
+    </div>      
+</body>
+</html>

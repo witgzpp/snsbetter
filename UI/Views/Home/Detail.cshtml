@@ -1,5 +1,5 @@
 ﻿@{
-    Layout = null;
+    Layout = "~/Views/Shared/_LayoutPage1.cshtml";
 }
 @using Modal;
 <!DOCTYPE html>
@@ -18,7 +18,7 @@
     <link href="/Css/footer.css" rel="stylesheet" />
     <link href="/Css/SearchSubmit.css" rel="stylesheet" />
     <link href="/Css/info.css" rel="stylesheet" />
-
+    <link href="/Css/Comment_nav.css" rel="stylesheet" />
     <style type="text/css">
         body {
             font-family: Verdana,Arial,Helvetica,sans-serif;
@@ -32,6 +32,7 @@
         .content {
             padding:36px 0px;
             text-align:justify;
+            
         }
             .content textarea {
                 width: 100%;
@@ -41,29 +42,7 @@
                 overflow:hidden;
                 margin:0 auto;
             }
-        #comment_nav {
-            background-color:white;          
-            width: 44px;
-            top: 80%;
-            left: 90%;
-            position: fixed;           
-            
-            display: block;
-        }
-            #comment_nav:hover {
-                background-color:#ff6a00;
-            }
-            #comment_nav a:link {
-                color:#000;
-                text-decoration:none;
-            }
-            #comment_nav a {
-                padding-left:10px;
-            }
-                #comment_nav a:hover {
-                    color:#92ba1b;
-                }
-
+       
         #comment_bottom {
             border: 1px solid #dedede;
             padding:20px;
@@ -142,6 +121,17 @@
     </script>
 </head>
 <body> 
+    <div id="comment_nav">
+        <div style="height:30px;">
+            <a href="#" title="刷新页面" onclick="return RefreshPage();"><img width="22" height="22" src="/Resources/reflash.jpg" /> </a>
+        </div>
+        <div style="height:30px;">
+            <a href="#top"><img src="/Resources/top.jpg" title="返回顶部"></a>
+        </div>
+        <div style="height:30px;">
+            <a href="#bottom"><img src="/Resources/bottom.jpg" title="返回底部"></a>
+        </div>
+    </div>  
     <a name="top"></a>
         @{
             Talk talk = (Talk)Model;
@@ -159,7 +149,7 @@
     <br />
 
    
-    <div style="width:90%; margin:0 auto; padding-top:5px;" >
+    <div style="width:80%; margin:0 auto; padding-top:5px;" >
         <h2 style="text-align:center;">@talk.Title</h2> 
         <div class="info">
             [字体：
@@ -195,17 +185,7 @@
                 }                              
             </table>           
         </div> 
-        <div id="comment_nav">
-            <div style="height:30px;">
-                <a href="#" title="刷新页面" onclick="return RefreshPage();"><img width="22" height="22" src="/Resources/reflash.jpg" /> </a>
-            </div>
-            <div style="height:30px;">
-                <a href="#top"><img src="/Resources/top.jpg" title="返回顶部"></a>
-            </div>
-            <div style="height:30px;">
-                <a href="#bottom"><img src="/Resources/bottom.jpg" title="返回底部"></a>
-            </div>
-        </div>  
+        
         
         
         <div id="comment_bottom">
@@ -235,12 +215,7 @@
 
     <div class="footer">
         Copyright &copy;@talk.CName
-    </div>
-   
-    
-    
-    
-
+    </div>    
     @using (Html.BeginForm()){
         
              <div class="editDiv">
@@ -290,12 +265,7 @@
                      </table>                                        
                  </form>
              </div>
-    }
-
-
-    
-    <br />
-   
+    }    
     <a name="bottom"></a>
 </body>
 </html>
