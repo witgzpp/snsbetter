@@ -156,7 +156,7 @@ namespace UI.Controllers
             //Session["allcontentmd5"] = Md5Helper.GetMd5(t.Theme + t.Title + t.Content, 16);//给talk的theme、title、content加密
 
             ViewData.Model = t;
-
+            ViewData["title"] = t.Title;
             
 
             return View();
@@ -183,6 +183,7 @@ namespace UI.Controllers
              IMessageEntity msg = new MessageEntity();
             string flag = "";
             ViewData["updateflag"] = "";
+            
 
             #region 查询talk实体
             msginfo = talklogic.SelectTalk(talk.Id);
@@ -277,6 +278,8 @@ namespace UI.Controllers
 
             ViewData["updateflag"] = flag;
 
+            
+
 
             #region 查询talk实体
             msginfo = talklogic.SelectTalk(talk.Id);
@@ -287,7 +290,8 @@ namespace UI.Controllers
 
             ViewData.Model = t;
             #endregion
-           
+
+            ViewData["title"] = t.Title;
 
             return View();
         }
