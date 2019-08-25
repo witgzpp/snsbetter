@@ -17,17 +17,12 @@
     <meta name="keywords" content="众创,众创网,SNSBETTER,snsbetter,snsbetter.cn,共享,信息,资讯" /> 
     <meta name="description" content="众创为广大网民提供信息发布空间！娱乐信息、生活趣事、技术性文章来吸引有着共同爱好的朋友，在这里可以寻找到创作的灵感。一同营造大众创作，万众创新，互利共享，开放包容的网络环境" />
     <meta content="always" name="referrer"> 
-    <link href="/Css/LoginAndRegist.css" rel="stylesheet" />
+    
     <link href="/Css/nrDiv.css" rel="stylesheet" />
     <link href="/Css/Search.css" rel="stylesheet" />
     <link href="/Css/userinfo.css" rel="stylesheet" />
     <link href="/Css/Common.css" rel="stylesheet" /> 
     <link href="/Content/PagedList.css" rel="stylesheet" />
-    <link href="/Css/SearchSubmit.css" rel="stylesheet" />
-    <link href="/Css/Mytitle.css" rel="stylesheet" />
-    <link href="/Css/select.css" rel="stylesheet" />
-    
-    <link href="/Css/header_blockCss.css" rel="stylesheet" />
     
     <style type="text/css">      
         #clock {
@@ -44,11 +39,7 @@
     </style>       
 </head>
 <body style="background-image:url(@ViewData["img"])">        
-    <div class="header_block">
-        <a href="http://www.snsbetter.cn" title="http://www.snsbetter.cn"><img src="/Resources/webflag.jpg" style="width:240px; height:41px;" /></a><span style="font-size:18px; color:#ff6a00; font-style:normal; margin-left:58.2%;">@ViewData["flag"]</span>
-        
-        
-    </div>
+   
    
     @if (Session["user"] != null)
 {         
@@ -92,51 +83,8 @@
             
         }   
     </div>
-    <div class="mytitle">
-        <form action="/User/Informations">
-            <select name="Theme" class="select">
-                <option>  </option>
-                <option>科技</option>
-                <option>经济</option>
-                <option>政治</option>
-                <option>人物</option>
-                <option>民生</option>
-                <option>文化</option>
-                <option>娱乐</option>
-                <option>学术</option>
-                <option>物理</option>
-                <option>文学</option>
-                <option>哲学</option>
-                <option>Technology</option>
-                <option>Economic</option>
-                <option>Politics</option>
-                <option>GreatMan</option>
-                <option>Finance</option>
-                <option>Amusement</option>
-                <option>Academic</option>
-                <option>Physics</option>
-                <option>Literature</option>
-                <option>Philosophy</option>
-            </select>
-            <input type="submit" value="Go" class="submit" />
-        </form>   
-    </div>
-    <div class="lr">      
-            <form action="/User/SearchInfo" style="margin-top:10px;">
-                <input class="keyword" style="text-align:center" type="text" name="keyword" placeholder="搜点啥" />
-                <input type="submit" value="Go" class="submit" />
-            </form>      
-        @{
-            if (Session["user"]==null) 
-            {
-                @Html.ActionLink("登录", "Login", "User");
-                @Html.ActionLink("注册 ", "Regist", "User");
-            }          
-        }
-        @Html.ActionLink("重置密码", "ReSetPwd", "User")
-        @Html.ActionLink("用户中心", "UserCenter", "User")
-        
-    </div>
+    
+    
     <div class="nr">
         <div>
             @foreach (Talk item in Model)

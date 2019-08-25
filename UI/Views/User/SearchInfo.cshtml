@@ -16,11 +16,11 @@
     <link rel="shortcut icon" type="image/x-icon" href="/Resources/logo.ico" />
     <script src="/Js/jquery.min.js"></script>
     <link href="/Css/nrDiv.css" rel="stylesheet" />
-    <link href="/Css/Search.css" rel="stylesheet" />
+    
     <link href="/Css/Common.css" rel="stylesheet" />
     <link href="/Content/PagedList.css" rel="stylesheet" />
     <link href="/Css/SearchSubmit.css" rel="stylesheet" />
-    <link href="/Css/Mytitle.css" rel="stylesheet" />
+    
     <link href="/Css/select.css" rel="stylesheet" />
     <script type="text/javascript">
         
@@ -30,41 +30,7 @@
 </head>
 <body>  
     
-    <div class="mytitle">
-        <form action="/User/Informations">
-            <select name="Theme" class="select">
-                <option>  </option>
-                <option>科技</option>
-                <option>经济</option>
-                <option>政治</option>
-                <option>人物</option>
-                <option>民生</option>
-                <option>文化</option>
-                <option>娱乐</option>
-                <option>学术</option>
-                <option>物理</option>
-                <option>文学</option>
-                <option>哲学</option>
-                <option>Technology</option>
-                <option>Economic</option>
-                <option>Politics</option>
-                <option>GreatMan</option>
-                <option>Finance</option>
-                <option>Amusement</option>
-                <option>Academic</option>
-                <option>Physics</option>
-                <option>Literature</option>
-                <option>Philosophy</option>
-            </select>
-            <input type="submit" value="Go" class="submit" />
-        </form>   
-    </div> 
-    <div class="Search" style="position:inherit;">
-        <form action="/User/SearchInfo" style="margin-top:10px;">
-            <input style="text-align:center" class="keyword" type="text" name="keyword" placeholder="搜点啥" />
-            <input type="submit" class="submit" value="Go" />
-        </form>
-    </div>
+    
     <div class="nr">
         @Html.ActionLink("首页", "Index", "Home")
         @if (ViewData["nr"] == null) 

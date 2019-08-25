@@ -11,30 +11,12 @@
     <link rel="shortcut icon" type="image/x-icon" href="/Resources/logo.ico" />
     <link href="/Css/Common.css" rel="stylesheet" />
 
-    <link href="/Css/LoginAndRegist.css" rel="stylesheet" />
+    
     <link href="/Css/DivCenter.css" rel="stylesheet" />
     <script src="/Js/jquery-3.2.1.js"></script>
     <script src="/Js/ChangeCode.js"></script>
 </head>
 <body style="background-image:url(/Resources/findpwd.jpg);">
-    <div class="lr">
-
-        @{
-            if (Session["user"] != null) 
-            {
-                 
-            }
-            else
-            {
-                  @Html.ActionLink("登录", "Login", "User")
-                  @Html.ActionLink("注册", "Regist", "User")
-            }
-        }
-        @Html.ActionLink("首页", "Index", "Home")
-
-       
-       
-    </div>
     <div class="divCenter">
         <img src="/Resources/head.jpg" style="margin-top:20px;" />
         @using (Html.BeginForm())
