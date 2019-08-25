@@ -4,17 +4,80 @@
 <head>
     <meta name="viewport" content="width=device-width" />
     <title>@ViewBag.Title</title>
-    <link href="/Css/footer_div.css" rel="stylesheet" />
     
-    
+    <link href="/Css/footer_div.css" rel="stylesheet" />  
+    <link href="/Css/Search.css" rel="stylesheet" />
+    <link href="/Css/Mytitle.css" rel="stylesheet" />  
+    <link href="/Css/select.css" rel="stylesheet" />    
+    <link href="/Css/LoginAndRegist.css" rel="stylesheet" />
+    <link href="/Css/SearchSubmit.css" rel="stylesheet" />
+    <link href="/Css/header_blockCss.css" rel="stylesheet" />
 </head>
-<body>
+<body> 
+    <a name="top"></a>
+    <div class="header_block">
+        <a href="http://www.snsbetter.cn" title="http://www.snsbetter.cn"><img src="/Resources/webflag.jpg" style="width:240px; height:41px;" /></a>
+        <br />
+        <span style="font-size:18px; color:#ff6a00; font-style:normal; margin-left:80px;">@ViewData["flag"]</span>
+    </div>
+   
+    <div class="lr">
+
+        @{
+            if (Session["user"] == null)
+            {
+                @Html.ActionLink("登录", "Login", "User");
+            @Html.ActionLink("注册 ", "Regist", "User");
+            }
+        }
+        @Html.ActionLink("重置密码", "ReSetPwd", "User")
+        @Html.ActionLink("用户中心", "UserCenter", "User")
+
+    </div>
+    
+    <div class="mytitle">
+        <form action="/User/Informations">
+            <select name="Theme" class="select">
+                <option>  </option>
+                <option>科技</option>
+                <option>经济</option>
+                <option>政治</option>
+                <option>人物</option>
+                <option>民生</option>
+                <option>文化</option>
+                <option>娱乐</option>
+                <option>学术</option>
+                <option>物理</option>
+                <option>文学</option>
+                <option>哲学</option>
+                <option>Technology</option>
+                <option>Economic</option>
+                <option>Politics</option>
+                <option>GreatMan</option>
+                <option>Finance</option>
+                <option>Amusement</option>
+                <option>Academic</option>
+                <option>Physics</option>
+                <option>Literature</option>
+                <option>Philosophy</option>
+            </select>
+            <input type="submit" value="Go" class="submit" />
+        </form>
+    </div>
+  
+
+    <div class="Search" style="position:inherit; opacity:0.89;">
+        
+        <form action="/User/SearchInfo" style="margin-top:10px;">
+            <input style="text-align:center" class="keyword" type="text" name="keyword" placeholder="搜点啥" />
+            <input type="submit" class="submit" value="Go" />
+        </form>
+    </div> 
     
     <div>
         @RenderBody()
     </div>
     <div class="footer_div">
-
         <div>
             为了防范电信网络诈骗，如网民接到962110电话，请立即接听
         </div>
