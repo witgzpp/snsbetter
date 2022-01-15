@@ -1,0 +1,21 @@
+﻿ #comment_nav {
+            background-color:white;          
+            width: 44px;
+            top: 80%;
+            left: 90%;
+            position: fixed;                                
+            display: block;
+        }
+            #comment_nav:hover {
+                background-color:#ff6a00;
+            }
+            #comment_nav a:link {
+                color:#000;
+                text-decoration:none;
+            }
+            #comment_nav a {
+                padding-left:10px;
+            }
+                #comment_nav a:hover {
+                    color:#92ba1b;
+                }

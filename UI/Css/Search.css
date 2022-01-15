@@ -1,0 +1,16 @@
+﻿body {
+}
+.Search {
+    position:fixed;
+    margin-left:76%;
+    padding:8px;
+}
+
+.Search .keyword {
+        border:solid 1px #19a6b8;
+    }
+   .Search .keyword:hover {
+        border:2px solid #ff6a00;
+    }
+
+   

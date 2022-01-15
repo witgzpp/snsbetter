@@ -1,0 +1,27 @@
+﻿
+.lr {
+    width:191px;   
+    display:block;
+    margin-left:76%;
+    position:relative;
+    background-color:#f0eef5;
+    margin-top:0px;
+    padding:8px;
+    
+
+}
+.lr a {
+    text-decoration:none;
+    font-size:12px;
+    padding:1px 0px 0px 8px;
+}
+.lr a:hover {
+    color:#ff6a00;
+}
+
+    .lr .keyword {
+        border:solid 1px #19a6b8;
+    }
+    .lr .keyword:hover {
+        border:2px solid #ff6a00;
+    }

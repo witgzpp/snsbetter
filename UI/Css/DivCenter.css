@@ -1,0 +1,22 @@
+﻿body {
+    
+}
+.divCenter {
+    margin:0 auto;
+    border:1px solid #000000;
+    height:420px;
+    width:320px;
+    
+    
+    text-align:center;
+    background-color:#e1dada;
+    border:none;
+}
+
+    .divCenter table td {
+        padding-top:8px;
+    }
+
+
+
+

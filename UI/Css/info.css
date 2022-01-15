@@ -1,0 +1,12 @@
+﻿.info {
+    margin-top: 10px;
+    text-align: center;
+    font-family: '微软雅黑';
+    font-size: 14px;
+    color: #676767;
+
+}
+    .info a {
+        text-decoration:none;
+        color:#333333;
+    }

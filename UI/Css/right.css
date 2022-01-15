@@ -1,0 +1,21 @@
+﻿.right_show {
+    text-align:left;
+}
+
+    .right_show span {
+        font-size:14px;
+        color:#ad9e9e;
+    }
+
+.flag_show table {   
+    padding-left:72%;
+}
+
+.right_show textarea {
+    border:none;
+    background:#f0eef5;
+    overflow:hidden;
+    margin:0 auto;
+    resize:none;
+
+}

@@ -1,0 +1,31 @@
+﻿body {
+}
+.nr {
+    background-color:#fafafa;
+    margin-top:45px;
+    width:80%;
+    margin-left:10%;
+    padding:20px;
+}
+
+.nr a {
+    font-size:14px;
+    text-decoration:none;
+    
+}
+    .nr a:hover {
+        color:#ff6a00;
+    }
+
+    .nr table tr td:nth-child(1) {
+        width:20px;
+    }
+    .nr table tr td:nth-child(2) {
+        width:60px;
+    }
+    .nr table tr td:nth-child(3) {
+        width:400px;
+    }
+    .nr table tr td:nth-child(4) {
+        width:800px;
+    }
